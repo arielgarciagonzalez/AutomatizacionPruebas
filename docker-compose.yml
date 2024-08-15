@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src/test/resources:/app/src/test/resources
+    environment:
+      - base.url=https://www.amazon.com
+      - chrome.driver.path=/app/src/test/resources/drivers/chromedriver
+    shm_size: '2gb'
